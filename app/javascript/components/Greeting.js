@@ -1,21 +1,20 @@
-import React from "react"
+import React from 'react';
 import { createStructuredSelector } from 'reselect';
-import { connect } from "react-redux";
-import './greeting.css'
-
+import { connect } from 'react-redux';
+import './greeting.css';
 
 const GET_GREETING_SUCCESS = 'GET_GREETING_SUCCESS';
 const GET_GREETING_REQUEST = 'GET_GREETING_REQUEST';
 
 function getGreeting() {
   return async (dispatch) => {
-    dispatch({type: GET_GREETING_REQUEST});
+    dispatch({ type: GET_GREETING_REQUEST });
     try {
-      const response = await fetch(`api/v1/messages.json`);
+      const response = await fetch('api/v1/messages.json');
       const json = await response.json();
       return dispatch(greetingSuccess(json));
     } catch (error) {
-     console.log(error);
+      console.log(error);
     }
   };
 }
@@ -23,31 +22,27 @@ function getGreeting() {
 function greetingSuccess(json) {
   return {
     type: GET_GREETING_SUCCESS,
-    json
+    json,
   };
 }
 class Greeting extends React.Component {
-  render () {
+  render() {
+    const { greeting } = this.props;
+    const greetingMessage = greeting.map((message, i) => <div className="message" key={i}>{message.greeting}</div>);
 
-    const {greeting} = this.props;
-    const greetingMessage = greeting.map((message,i) => {
-      return <div className="message" key={i}>{message.greeting}</div>
-    } ) 
-
-    
     return (
-      <React.Fragment>
-        <button onClick = {()=> this.props.getGreeting()}>Generate random greeting</button>
+      <>
+        <button onClick={() => this.props.getGreeting()}>Generate random greeting</button>
         <div>{greetingMessage}</div>
-      </React.Fragment>
+      </>
     );
   }
 }
 
 const structuredSelector = createStructuredSelector({
-  greeting: state => state.greeting
+  greeting: (state) => state.greeting,
 });
 
 const mapDispatchToProps = { getGreeting };
 
-export default connect(structuredSelector, mapDispatchToProps)(Greeting) 
+export default connect(structuredSelector, mapDispatchToProps)(Greeting);
