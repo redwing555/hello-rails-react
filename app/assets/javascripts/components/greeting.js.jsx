@@ -4,10 +4,15 @@ class Greeting extends React.Component {
   render () {
     return (
       <React.Fragment>
+        My Greeting: {this.props.greeting}
       </React.Fragment>
     );
   }
 }
+
+Greeting.propTypes = {
+  greeting: PropTypes.string
+};
 
 export default Greeting
 
