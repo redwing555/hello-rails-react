@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  namespace :v1, defaults: { format: :json } do
-    get 'messages', to: 'messages#index'
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      get 'messages', to: 'messages#index'
+    end
   end
 
   root 'static#index'

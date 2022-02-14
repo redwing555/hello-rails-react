@@ -11,7 +11,7 @@ class App extends React.Component {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={ <Greeting greeting="Homie"/> }></Route>
+            <Route path="/" element={ <Greeting /> }></Route>
           </Routes>
         </BrowserRouter>
       </Provider>

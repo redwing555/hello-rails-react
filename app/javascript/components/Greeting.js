@@ -1,16 +1,53 @@
 import React from "react"
-import PropTypes from "prop-types"
+import { createStructuredSelector } from 'reselect';
+import { connect } from "react-redux";
+import './greeting.css'
+
+
+const GET_GREETING_SUCCESS = 'GET_GREETING_SUCCESS';
+const GET_GREETING_REQUEST = 'GET_GREETING_REQUEST';
+
+function getGreeting() {
+  return async (dispatch) => {
+    dispatch({type: GET_GREETING_REQUEST});
+    try {
+      const response = await fetch(`api/v1/messages.json`);
+      const json = await response.json();
+      return dispatch(greetingSuccess(json));
+    } catch (error) {
+     console.log(error);
+    }
+  };
+}
+
+function greetingSuccess(json) {
+  return {
+    type: GET_GREETING_SUCCESS,
+    json
+  };
+}
 class Greeting extends React.Component {
   render () {
+
+    const {greeting} = this.props;
+    const greetingMessage = greeting.map((message,i) => {
+      return <div className="message" key={i}>{message.greeting}</div>
+    } ) 
+
+    
     return (
       <React.Fragment>
-        Greeting: {this.props.greeting}
+        <button onClick = {()=> this.props.getGreeting()}>Generate random greeting</button>
+        <div>{greetingMessage}</div>
       </React.Fragment>
     );
   }
 }
 
-Greeting.propTypes = {
-  greeting: PropTypes.string
-};
-export default Greeting 
+const structuredSelector = createStructuredSelector({
+  greeting: state => state.greeting
+});
+
+const mapDispatchToProps = { getGreeting };
+
+export default connect(structuredSelector, mapDispatchToProps)(Greeting) 
