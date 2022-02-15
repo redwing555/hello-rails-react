@@ -5,8 +5,8 @@ import configureStore from '../redux/configureStore';
 import Greeting from './Greeting';
 
 const store = configureStore();
-class App extends React.Component {
-  render() {
+const App = () => {
+  
     return (
       <Provider store={store}>
         <BrowserRouter>
@@ -16,7 +16,7 @@ class App extends React.Component {
         </BrowserRouter>
       </Provider>
     );
-  }
+
 }
 
 export default App;

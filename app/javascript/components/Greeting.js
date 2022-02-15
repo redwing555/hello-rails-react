@@ -6,7 +6,7 @@ import './greeting.css';
 const GET_GREETING_SUCCESS = 'GET_GREETING_SUCCESS';
 const GET_GREETING_REQUEST = 'GET_GREETING_REQUEST';
 
-function getGreeting() {
+ const getGreeting = () => {
   return async (dispatch) => {
     dispatch({ type: GET_GREETING_REQUEST });
     try {
@@ -19,24 +19,24 @@ function getGreeting() {
   };
 }
 
-function greetingSuccess(json) {
+const greetingSuccess = (json) => {
   return {
     type: GET_GREETING_SUCCESS,
     json,
   };
 }
-class Greeting extends React.Component {
-  render() {
-    const { greeting } = this.props;
+const Greeting = (props) => {
+
+    const { greeting } = props;
     const greetingMessage = greeting.map((message, i) => <div className="message" key={i}>{message.greeting}</div>);
 
     return (
       <>
-        <button onClick={() => this.props.getGreeting()}>Generate random greeting</button>
+        <button onClick={() => props.getGreeting()}>Generate random greeting</button>
         <div>{greetingMessage}</div>
       </>
     );
-  }
+  
 }
 
 const structuredSelector = createStructuredSelector({
