@@ -1,73 +1,58 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+ # Hello-Rails-React
 
-# Project Name
-
-> Description the project.
-
-
+This is the first trial of  working with  React as a front-end and Ruby-on-Rails as a backend. Random messages are displayed on button click.
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby On Rails
+- React-Rails gem
+- Redux
+- Git
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+Follow these steps below :
 
 
-To get a local copy up and running follow these simple example steps.
+### Setup
+ ```git clone https://github.com/redwing555/hello-rails-react```
+
+ ```cd hello-rails-react```
 
 ### Prerequisites
 
-### Setup
+    Ruby Rails PostgresSQL
 
-### Install
+Install gems with:
+    
+    bundle install
 
-### Usage
+Start server with:
 
-### Run tests
+    rails s
 
-### Deployment
+Open http://localhost:3000/ in your browser.
+Run tests
 
+Install npm with:
 
+    npm install
 
-## Authors
+Install all Ruby dependecies with:
 
-👤 **Author1**
+    bundle install
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+## Author
 
-👤 **Author2**
+👤 **Hichami Houssam**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@redwing555](https://github.com/redwing555/)
+
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/redwing555/hello-rails-react/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
