@@ -8,6 +8,38 @@ This is the first trial of  working with  React as a front-end and Ruby-on-Rails
 - Redux
 - Git
 
+## Getting Started
+Follow these steps below :
+
+
+### Setup
+ ```git clone https://github.com/redwing555/hello-rails-react```
+
+ ```cd hello-rails-react```
+
+### Prerequisites
+
+    Ruby Rails PostgresSQL
+
+Install gems with:
+    
+    bundle install
+
+Start server with:
+
+    rails s
+
+Open http://localhost:3000/ in your browser.
+Run tests
+
+Install npm with:
+
+    npm install
+
+Install all Ruby dependecies with:
+
+    bundle install
+
 ## Author
 
 👤 **Hichami Houssam**
